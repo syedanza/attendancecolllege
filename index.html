@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mark Your Attendance</h1>
+    <form id="attendanceForm">
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" name="rollNumber" required><br><br>
+
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <button type="submit">Mark Present</button>
+    </form>
+
+    <script>
+        document.getElementById("attendanceForm").onsubmit = function(event) {
+            event.preventDefault();
+
+            // Get student details
+            var rollNumber = document.getElementById("rollNumber").value;
+            var name = document.getElementById("name").value;
+
+            // Construct the WhatsApp message
+            var message = "Attendance%20Marked%20by%20Roll%20Number%20" + rollNumber + "%20" + name;
+
+            // WhatsApp Click-to-Chat URL
+            var url = "https://wa.me/+1234567890?text=" + message; // Replace with your WhatsApp group number
+
+            // Open WhatsApp with the message
+            window.open(url, "_blank");
+        };
+    </script>
+
+</body>
+</html>
